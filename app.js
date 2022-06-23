@@ -1,6 +1,7 @@
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 const btn= document.querySelector('.btn__reset');
+const overlay = document.getElementById('overlay')
 let missedScore = 0;
 
 function getrandomphrases(){[ 
@@ -15,13 +16,14 @@ return getrandomphrases;
 };
 
 btn.addEventListener('click', (e) => {
-btn.style.display ='none';
+overlay.style.display ='none';
 
 });
 
 function addPhraseToDisplay(){
 for(let i = 0; i< getrandomphrases.length; i++ ){
-    const letter = getrandomphrases[i];
+    //const letter = //
+    getrandomphrases[i];
    const li = document.createElement('li');
    ul.appendChild('li');
    li.className = 'letter';
@@ -33,10 +35,10 @@ for(let i = 0; i< getrandomphrases.length; i++ ){
 
 };
 
-
+const letter = document.querySelectorAll('.letter')
 checkLetter.addEventListener('click', () =>{
     for(let i = 0; i< checkLetter.length; i++){
-        let matchscore = 0;
+        let match = 0;
         const checkLetter = letter;
 if (addPhraseToDisplay === checkLetter[i].textContent) {
     checkLetter[i].className += ' show'
