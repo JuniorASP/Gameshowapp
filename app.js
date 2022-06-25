@@ -4,6 +4,9 @@ const btn= document.querySelector('.btn__reset');
 const overlay = document.getElementById('overlay');
 const letter = document.querySelectorAll('.letter')
 const li = document.createElement('li');
+const totalLetters = document.querySelectorAll('.letter');
+const shownLetters = document.querySelectorAll('.show');
+const h3 = document.createElement('h3')
 let missedScore = 0;
 
 
@@ -63,11 +66,10 @@ btn.addEventListener('click', () => {
             button.disabled = true;
             button.className = "chosen";
             const check = checkLetter(button);
-        
             if (check === null) {
-                heartArray[missed].src = 'images/lostHeart.png'
-                button.className = 'wrong'
-                missed++
+                const heart = document.querySelectorAll('img');
+            heart[missed].setAttribute('src', 'images/lostHeart.png');
+            missed ++;
         
             }
         }
@@ -75,9 +77,6 @@ btn.addEventListener('click', () => {
         });
         
         const checkWin = () => {
-            const totalLetters = document.querySelectorAll('.letter')
-            const shownLetters = document.querySelectorAll('.show')
-            const h3 = document.createElement('h3')
             if (shownLetters.length === totalLetters.length) {
                 removeShowClass()
                 overlay.className = 'win'
