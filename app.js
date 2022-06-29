@@ -6,7 +6,8 @@ const letter = document.querySelectorAll('.letter')
 const li = document.createElement('li');
 const h3 = document.createElement('h3')
 const ul = document.querySelector('ul');
-let missedScore = 0;
+const tries = document.querySelectorAll("li.tries");
+let missed = 0;
 
 
 const phrases = [
@@ -48,7 +49,7 @@ btn.addEventListener('click', () => {
 
         }
     }
-    addPhraseToDisplay(randomPhrase);
+    addPhraseToDisplay(randomPhrase);         
     
     qwerty.addEventListener('click', (e) =>{
         if(e.target.tagName === 'BUTTON' && e.target.className != 'chosen'){
@@ -58,50 +59,49 @@ btn.addEventListener('click', () => {
             const clicketLetter =  e.target.textContent;
             const check = checkLetter(clicketLetter);
             if (check === null) {
-                const heart = document.querySelectorAll('img');
-            heart[missed].setAttribute('src', 'images/lostHeart.png');
-            missed ++;
-        
-
-            
+                tries[missed].firstElementChild.src = "images/lostHeart.png";
+                missed++;
             }
         }
+        checkWin();
         
         });
-        
-
-    function checkLetter(selectletter) {
-      const islettercorrect = 'power'.includes(selectletter);
-        const checkLetter = li;    
-        let match = null;
-            for(let i = 0; i< checkLetter.length; i++){
-                if (li.textContent === arr.textContent) {
-                    li.classList.add('show');
-                    li.style.transition = "all .5s ease";
-                    match = arr.textContent;
-    }
-    
-    }
-    }            
+        function checkLetter(selectletter) {
+            //const islettercorrect = 'power'.includes(selectletter);
+              const checkLetter = li;    
+              let match = null;
+      
+                  for(let i = 0; i< checkLetter.length; i++){
+                      if (li.textContent === arr.textContent) {
+                          li.classList.add('show');
+                          li.style.transition = "all .5s ease";
+                          match = arr.textContent;
+          }
+          
+          }
+          return null;
+          }   
+          
+ 
         function checkWin(){
             const totalLetters = document.querySelectorAll('.letter');
             const shownLetters = document.querySelectorAll('.show');
             if (shownLetters.length === totalLetters.length) {
-                overlay.className = 'win'
-                overlay.style.display = 'flex'
-                btn.textContent = 'Play Again'
-                overlay.appendChild(h3)
-                h3.textContent = 'You Won!'
+                overlay.className = 'win';
+                overlay.style.display = 'flex';
+                btn.textContent = 'Play Again';
+                overlay.appendChild(h3);
+                h3.textContent = 'You Won!';
             } else if (missed >= 4) {
-                overlay.className = 'lose'
-                overlay.style.display = 'flex'
-                btn.textContent = 'Try Again'
+                overlay.className = 'lose';
+                overlay.style.display = 'flex';
+                btn.textContent = 'Try Again';
                 overlay.appendChild(h3)
-                h3.textContent = 'You Lost!'
+                h3.textContent = 'You Lost!';
             }
         }
         
-        
+    
 
         
 
