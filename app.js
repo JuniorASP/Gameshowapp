@@ -105,7 +105,7 @@ btn.addEventListener('click', () => {
                     });
                 overlay.appendChild(h3);
                 h3.textContent = 'You Won!';
-            } else if (missed >= 4) {
+            } else if (missed >= 5) {
                 overlay.className = 'lose';
                 overlay.style.display = 'flex';
                 btn.textContent = 'Try Again';
