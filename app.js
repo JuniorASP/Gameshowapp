@@ -11,11 +11,11 @@ let missed = 0;
 
 
 const phrases = [
-    'power'
-    ,'godfather'
-    , 'scarface'
-    , 'dragonball'
-    , 'naruto'
+    'power ghost'
+    ,'godfather pad'
+    , 'scarface tony'
+    , 'dragonball z gt '
+    , 'naruto one piece'
 
 ];
 
@@ -39,7 +39,7 @@ btn.addEventListener('click', () => {
            ul.appendChild(li);
            li.className = 'letter';
            li.textContent = text;
-           if (letter === " ") {
+           if (randomPhrase[i] === " ") {
             li.className = 'space';
           } else {
             li.className = 'letter';
