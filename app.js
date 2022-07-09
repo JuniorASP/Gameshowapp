@@ -13,7 +13,7 @@ let missed = 0;
 const phrases = [
     'power ghost'
     ,'godfather pad'
-    , 'scarface tony'
+    , 'scarfacey tony'
     , 'dragonball z gt '
     , 'naruto one piece'
 
@@ -53,7 +53,7 @@ btn.addEventListener('click', () => {
     
     qwerty.addEventListener('click', (e) =>{
         if(e.target.tagName === 'BUTTON' && e.target.className != 'chosen'){
-            const btn = e.target;
+            const btn = e.target; 
             btn.disabled = true;
             btn.className = "chosen";
             const clicketLetter =  e.target.textContent;
@@ -65,9 +65,11 @@ btn.addEventListener('click', () => {
         function checkLetter(selectletter) {
             const islettercorrect = randomPhrase.includes(selectletter);
             if(islettercorrect === true){
+                console.log('true');
                 for(let i = 0; i< randomPhrase.length; i++){
                     if(randomPhrase[i]=== selectletter){
-                        document.querySelectorAll('.letter')[i].classList.add('show');
+                        console.log(i, selectletter);
+                        document.querySelectorAll('li')[i].classList.add('show');
                         
                     }
 
