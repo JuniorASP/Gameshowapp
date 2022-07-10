@@ -85,7 +85,6 @@ btn.addEventListener('click', () => {
       
                   for(let i = 0; i< checkLetter.length; i++){
                       if (li.textContent === arr.textContent) {
-                          li.classList.add('show');
                           li.style.transition = "all .5s ease";
                           match = arr.textContent;
           }
@@ -119,4 +118,3 @@ btn.addEventListener('click', () => {
                 h3.textContent = 'You Lost!';
             }
         }
-        
